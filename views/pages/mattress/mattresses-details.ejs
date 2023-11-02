@@ -1,0 +1,117 @@
+<!--<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+	<link rel="stylesheet" href="../../css/style.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+	<title>Ekon</title>
+</head>
+<body>
+	<header>
+		<h1>Ekon</h1>
+		<img src="../../images/logo.png" alt="Ekon Logo">
+	</header>
+
+
+		<ul class="menu">
+			<li><a href="../../index.html">Main page</a></li>
+			<li><a href="">Clients</a>
+				<ul>
+					<li><a href="../client/list.html">Clients' list</a></li>
+					<li><a href="../client/form.html">Clients' form</a></li>
+				</ul>
+			</li>
+			<li><a href="">Orders</a>
+				<ul>
+					<li><a href="../order/order.html">Orders' list</a></li>
+					<li><a href="../order/order-form.html">Orders' form</a></li>
+				</ul>
+			</li>
+			<li><a href="">Matresses</a>
+				<ul>
+					<li><a href="mattresses.html">Mattresses' list</a></li>
+					<li><a href="mattresses-form.html">Mattresses' form</a></li>
+				</ul>
+			</li>
+		</ul>-->
+
+	<%- include('../../fragments/header.ejs') %>
+
+		<main>
+
+			<h2><%= __('mattress.list.detailsPage') %></h2>
+
+			<form class="form">
+
+
+
+			<label for="Name"><%= __('mattress.fields.Name') %><span class="symbol-required"></span></label>
+			<input type="text" name="Name" id="Name" value="<%= mattresses.Name %>" disabled required/>
+			<span id="errorName" class="errors-text"></span>
+
+
+			<label for="Type"><%= __('mattress.fields.Type') %><span class="symbol-required"></span></label>
+			<input type="text" name="Type" id="Type" value="<%= mattresses.Type %>" disabled  required/>
+			<span id="errorType" class="errors-text"></span>
+
+
+			<label for="Size"><%= __('mattress.fields.Size') %><span class="symbol-required"></span></label>
+			<input type="text" name="Size" id="Size" value="<%= mattresses.Size %>" disabled  required/>
+			<span id="errorSize" class="errors-text"></span>
+
+			
+			<label for="Description"><%= __('mattress.fields.Description') %><span class="symbol-required"></span></label>
+			<input type="text" name="Description" id="Description" value="<%= mattresses.Description %>" disabled required/>
+			<span id="errorDescrition" class="errors-text"></span>
+
+			
+			<label for="Price"><%= __('mattress.fields.Price') %><span class="symbol-required"></span></label>
+			<input type="text" name="Price" id="Price" value="<%= mattresses.Price %>" disabled required/>
+			<span id="errorPrice" class="errors-text"></span>
+
+			<%if(loggedUser){%>
+			<div class="form-buttons">
+				<a href="/mattress/edit/<%=mattresses.id%>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a>
+			</div>
+			<% } %>
+		</form>
+
+		
+		<h2><%= __('mattress.table.title') %></h2>
+            <table class="table-list">
+<thead>
+                    <tr>
+                    	<th><%= __('order.fields.Client') %></th>
+                        <th><%= __('order.fields.Amount') %></th>
+                        <th><%= __('order.fields.Status') %></th>
+                        <th><%= __('order.fields.ShippingCosts') %></th>
+                        <th><%= __('order.fields.DepartureDate') %></th>
+                        <th><%= __('order.fields.OrderDate') %></th>
+                    </tr>
+                </thead>
+                <tbody>
+				<% for (let m of mattresses.orders) { %>
+                    <tr>
+                    	<td><a href="/mattresses<%= m.client.id %>"><%= m.client.Name %></a></td>
+                        <td><%= m.Amount %></td>
+                        <td><%= m.Status %></td>
+                        <td><%= m.ShippingCosts %></td>
+                        <td><%= m.DepartureDate ? m.DepartureDate.toISOString().split('T')[0] : '' %></td>
+                        <td><%= m.OrderDate.toISOString().split('T')[0] %></td>
+                    </tr>
+				<% } %>>
+                </tbody>           
+            </table>
+
+	
+<p><a href="/mattress" class="list-actions-button-details"><%= __('form.actions.return') %></a></p>
+
+</main>
+
+	<%- include('../../fragments/footer.ejs') %>
+
+	<!--<footer>
+		Artem, Honcharenko, s22527
+	</footer>
+</body>
+</html>-->

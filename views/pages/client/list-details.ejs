@@ -1,0 +1,127 @@
+<!--<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+	<link rel="stylesheet" href="../../css/style.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+	<title>Ekon</title>
+</head>
+<body>
+	<header>
+		<h1>Ekon</h1>
+		<img src="../../images/logo.png" alt="Ekon Logo">
+	</header>
+
+	
+		<ul class="menu">
+			<li><a href="../../index.html">Main page</a></li>
+			<li><a href="">Clients</a>
+			<ul>
+					<li><a href="list.html">Clients' list</a></li>
+					<li><a href="form.html">Clients' form</a></li>
+				</ul>
+			</li>
+			<li><a href="">Orders</a>
+				<ul>
+					<li><a href="../order/order.html">Orders' list</a></li>
+					<li><a href="../order/order-form.html">Orders' form</a></li>
+				</ul>
+			</li>
+			<li><a href="">Matresses</a>
+				<ul>
+					<li><a href="../mattress/mattresses.html">Mattresses' list</a></li>
+					<li><a href="../mattress/mattresses-form.html">Mattresses' form</a></li>
+				</ul>
+			</li>
+		</ul>-->
+
+	<%- include('../../fragments/header.ejs') %>
+
+	<main>
+		<h2><%= __('client.list.detailsPage') %></h2>
+		<form class="form"> 
+			<label for="Name"><%= __('client.fields.Name') %><span class="symbol-required"></span></label>
+			<input type="text" name="Name" id="Name" value="<%= clients.Name %>" disabled required/>
+			<span id="errorName" class="errors-text"></span>
+
+
+			<label for="Surname"><%= __('client.fields.Surname') %><span class="symbol-required"></span></label>
+			<input type="text" name="Surname" id="Surname" value="<%= clients.Surname %>" disabled required/>
+			<span id="errorSurname" class="errors-text"></span>
+
+			
+			<label for="Adres"><%= __('client.fields.Adres') %><span class="symbol-required"></span></label>
+			<input type="text" name="Adres" id="Adres" value="<%= clients.Adres %>" disabled required/>
+			<span id="errorAdres" class="errors-text"></span>
+
+			
+			<label for="email"><%= __('client.fields.email') %><span class="symbol-required"></span></label>
+			<input type="email" name="email" id="email" value="<%= clients.email %>" disabled required/>
+			<span id="errorEmail" class="errors-text"></span>
+
+			
+			<label for="PhoneNumber"><%= __('client.fields.PhoneNumber') %></label>
+			<input type="text" name="PhoneNumber" id="PhoneNumber" value="<%= clients.PhoneNumber %>" disabled/>
+			<span id="errorPhoneNumber" class="errors-text"></span>
+
+			<%if(loggedUser && loggedUser.Name == "admin"){%>
+			<label for="password"><%= __('main-page.password') %></label>
+			<input type="text" name="password" id="password" value="<%= clients.password %>" disabled/>
+			<span id="errorPassword" class="errors-text"></span>
+			<% } %>
+
+
+			<%if(loggedUser){%>
+			<p><a href="/client/edit/<%=clients.id%>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a></p>
+			<% } %>
+
+		</form>
+
+		<h2><%= __('client.table.title') %></h2>
+            <table class="table-list">
+                <thead>
+                    <tr>
+                    	<th><%= __('order.fields.Mattress') %></th>
+                        <th><%= __('order.fields.Amount') %></th>
+                        <th><%= __('order.fields.Status') %></th>
+                        <th><%= __('order.fields.ShippingCosts') %></th>
+                        <th><%= __('order.fields.DepartureDate') %></th>
+                        <th><%= __('order.fields.OrderDate') %></th>
+                    </tr>
+                </thead>
+                <tbody>
+				<% for (let c of clients.orders) { %>
+                    <tr>
+                    	<td><a href="/mattresses<%= c.mattress.id %>"><%= c.mattress.Name %></a></td>
+                        <td><%= c.Amount %></td>
+                        <td><%= c.Status %></td>
+                        <td><%= c.ShippingCosts %></td>
+                        <td><%= c.DepartureDate ? c.DepartureDate.toISOString().split('T')[0] : '' %></td>
+                        <td><%= c.OrderDate.toISOString().split('T')[0] %></td>
+                    </tr>
+				<% } %>>
+                </tbody>               
+            </table>
+
+		<div class="form-buttons">
+			<p id="errorsSummary" class="errors-text"></p>
+			<% if (formMode != 'showDetails') { %>
+			<input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+			<a class="form-button-cancel" href="/client"><%= __('list.actions.cancel') %></a>
+			<% } else { %>
+				<a class="form-button-cancel" href="/client"><%= __('form.actions.return') %></a>
+			<% } %>
+		</div>
+
+
+
+		
+	</main>
+
+	<%- include('../../fragments/footer.ejs') %>
+
+	<!--<footer>
+		Artem, Honcharenko, s22527
+	</footer>
+</body>
+</html>-->

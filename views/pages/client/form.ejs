@@ -1,0 +1,111 @@
+
+
+	<%- include ../../fragments/header.ejs %>
+
+	<main>
+		<script type="application/javascript" src="/JS/validationCommon.js"> </script>
+		<script type="application/javascript" src="/JS/validationClientForm.js"></script>
+
+		<h2><%= pageTitle %></h2>
+
+		<form class="form"  method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+			<input type="hidden" name="id" value="<%= client.id %>">
+
+			<div style="display: none">
+				<span id="errorMessage-required"><%= __('validation.fieldRequired') %></span>
+				<span id="errorMessage-summary"><%= __('validation.errorsSummary') %></span>
+				<span id="errorMessage-length"><%= __('validation.errorsLength') %></span>
+				<span id="errorMessage-email"><%= __('validation.errorEmail') %></span>
+				<span id="errorMessage-phone"><%= __('validation.errorPhone') %></span>
+				<span id="errorMessage-phonelength"><%= __('validation.errorPhoneLength') %></span>
+			</div>
+
+			<label for="Name"><%= __('client.fields.Name') %><span class="symbol-required">*</span></label>
+			<input type="text" name="Name" id="Name" placeholder="2 - 30" required value="<%= client.Name %>" class="<%= validationErrors && Array.isArray(validationErrors) ? validationErrors.find(elem => elem.path.includes('Name')) ? 'error-input' : '' : '' %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<span id="errorName" class="errors-text">
+				<% if(validationErrors && validationErrors.length > 0) { %>
+					<% if(validationErrors.find(e => e.path.includes('Name'))) { %>
+						<%=__(validationErrors.find(e=>e.path.includes('Name')).message)%>
+					<% } %>
+				<% } %>
+			</span>
+
+
+			<label for="Surname"><%= __('client.fields.Surname') %><span class="symbol-required">*</span></label>
+			<input type="text" name="Surname" id="Surname" placeholder="2 - 30" required  value="<%= client.Surname %>" class="<%= validationErrors && Array.isArray(validationErrors) ? validationErrors.find(elem => elem.path.includes('Surname')) ? 'error-input' : '' : '' %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<span id="errorSurname" class="errors-text">
+				<% if(validationErrors && validationErrors.length > 0) { %>
+					<% if(validationErrors.find(e => e.path.includes('Surname'))) { %>
+						<%= __(validationErrors.find(e => e.path.includes('Surname')).message) %>
+					<% } %>
+				<% } %>
+			</span>
+
+			
+			<label for="Adres"><%= __('client.fields.Adres') %><span class="symbol-required">*</span></label>
+			<input type="text" name="Adres" id="Adres" placeholder="ex. Astronautów" required  value="<%= client.Adres %>" class="<%= validationErrors && Array.isArray(validationErrors) ? validationErrors.find(elem => elem.path.includes('Adres')) ? 'error-input' : '' : '' %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<span id="errorAdres" class="errors-text">
+				<% if(validationErrors && validationErrors.length > 0) { %>
+					<% if(validationErrors.find(e => e.path.includes('Adres'))) { %>
+						<%= __(validationErrors.find(e => e.path.includes('Adres')).message) %>
+					<% } %>
+				<% } %>
+			</span>
+
+			
+			<label for="email"><%= __('client.fields.email') %><span class="symbol-required">*</span></label>
+			<input type="email" name="email" id="email" placeholder="ex. email@domein.com" required  value="<%= client.email %>" class="<%= validationErrors && Array.isArray(validationErrors) ? validationErrors.find(elem => elem.path.includes('email')) ? 'error-input' : '' : '' %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<span id="errorEmail" class="errors-text">
+				<% if(validationErrors && validationErrors.length > 0) { %>
+					<% if(validationErrors.find(e => e.path.includes('email'))) { %>
+						<%= __(validationErrors.find(e => e.path.includes('email')).message) %>
+					<% } %>
+				<% } %>
+			</span>
+
+			
+			<label for="PhoneNumber"><%= __('client.fields.PhoneNumber') %></label>
+			<input type="text" name="PhoneNumber" id="PhoneNumber" placeholder="ex. 123456789"  value="<%= client.PhoneNumber %>" class="<%= validationErrors && Array.isArray(validationErrors) ? validationErrors.find(elem => elem.path.includes('PhoneNumber')) ? 'error-input' : '' : '' %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<span id="errorPhoneNumber" class="errors-text">
+				<% if(validationErrors && validationErrors.length > 0) { %>
+					<% if(validationErrors.find(e => e.path.includes('PhoneNumber'))) { %>
+						<%= __(validationErrors.find(e => e.path.includes('PhoneNumber')).message) %>
+					<% } %>
+				<% } %>
+			</span>
+
+			<label for="password"><%= __('main-page.password') %><span class="symbol-required">*</span></label>
+			<input type="text" name="password" id="password" placeholder="ex. 12345"  value="<%= client.password %>" class="<%= validationErrors && Array.isArray(validationErrors) ? validationErrors.find(elem => elem.path.includes('password')) ? 'error-input' : '' : '' %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<span id="errorPassword" class="errors-text">
+				<% if(validationErrors && validationErrors.length > 0) { %>
+					<% if(validationErrors.find(e => e.path.includes('password'))) { %>
+						<%= __(validationErrors.find(e => e.path.includes('password')).message) %>
+					<% } %>
+				<% } %>
+			</span>
+
+
+
+			<% if (formMode == 'showDetails') { %>
+
+				<div class="section-buttons">
+					<a href="/client/edit/<%= client.id %>" class="button-edit"><%= __('form.actions.edit') %></a>
+				</div>
+			<% } %>
+
+			
+			<p id="errorsSummary" class="<%= validationErrors && validationErrors.length > 0 ? 'errors-text' : ''%>">
+				<%= validationErrors && validationErrors.length > 0 ? __('validation.errorsSummary') : ''%>
+			  </p>
+
+			<div class="form-buttons">
+				<input type="submit" value="<%= btnLabel%>"  class="form-button-submit" />
+				<a href="/client" class="form-button-cancel"><%= __('form.actions.cancel') %></a>
+			</div>
+		</form>
+
+		
+	</main>
+
+	<%- include ../../fragments/footer.ejs %>
+

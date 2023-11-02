@@ -1,0 +1,63 @@
+CREATE SCHEMA IF NOT EXISTS `ekon`;
+use `ekon`;
+CREATE TABLE IF NOT EXISTS `ekon`.`Client`
+(
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `Name` VARCHAR(30) NOT NULL,
+    `Surname` VARCHAR(30) NOT NULL,
+    `Adres` VARCHAR(30) NOT NULL,
+    `email` VARCHAR(30) NOT NULL,
+    `PhoneNumber` VARCHAR(10),
+    `password` VARCHAR(30) NOT NULL,
+    `Role` INT,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `client_id_UNIQUE` (`id` ASC)
+) ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `ekon`.`Mattress`
+(
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `Name` VARCHAR(40) NOT NULL,
+    `Type` VARCHAR(30) NOT NULL,
+    `Size` INT NOT NULL,
+    `Description` VARCHAR(150) NOT NULL,
+    `Price` DECIMAL(10,2) UNSIGNED NOT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `mattress_id_UNIQUE` (`id` ASC)
+) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `ekon`.`Order_`
+(
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `Client_id` INT NOT NULL,
+    `Mattress_id` INT NOT NULL,
+    `Amount` INT NOT NULL,
+    `Status` VARCHAR(20) NOT NULL,
+    `ShippingCosts` DECIMAL(10,2) UNSIGNED NOT NULL,
+    `DepartureDate` DATE NOT NULL,
+    `OrderDate` DATE NOT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `order_id_UNIQUE` (`id` ASC),
+    CONSTRAINT `client_fk` FOREIGN KEY (`Client_id`) REFERENCES `ekon`.`Client` (`id`),
+	CONSTRAINT `mattress_fk` FOREIGN KEY (`Mattress_id`) REFERENCES `ekon`.`Mattress` (`id`)
+) ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_unicode_ci;
+
+
+INSERT IGNORE INTO `ekon`.`Client` (`id`, `Name`, `Surname`, `Adres`, `email`, `PhoneNumber`, `password`, `Role`) VALUES
+(1, 'Bartosz', 'Szymanczak', 'Konarskiego', 'b.szym@gmail.com', '123456789', '12345', 0),
+(2, 'Artem', 'Honcharenko', 'Astronautow', 'artem.zp.02@gmail.com', '999365919', '11111', 1),
+(3, 'Yarik', 'Usik', 'Ursynow', 'yarik@gmail.com', '987654321', '22222', 0),
+(4, 'Dariya', 'Kowal', 'Bemowo', 'dar@gmail.com', '456789123', '33333', 0);
+
+INSERT IGNORE INTO `ekon`.`Mattress` (`id`, `Name`, `Type`, `Size`, `Description`, `Price`) VALUES
+(1, 'ALOE VERA LATEX MATTRESS', 'medium hardness', 16, 'The composition of the cover includes an additive of Aloe Vera extract biomass. The average stiffness of the mattress is suitable for the absolute majority of people. 7 orthopedic zones provide the right support for the spine, and the elasticity of latex provides increased comfort.', 1000),
+(2, 'LATEX MATTRESS CORAL', 'tough hardness', 16, 'Orthopedic springless mattress "CORAL" is an excellent solution for those who have decided to become the owner of a mattress made of foam latex, while significantly saving money. "CORAL" has a removable cover made of high-quality three-layer textile, which is easy to remove and clean.', 1009),
+(3, 'LATEX MATTRESS BLACK LABEL', 'medium hardness', 16, 'Exclusive latex mattress Black Label — the development of Italian designer Paolo Marchetti. The designer black cover adds an extravagant touch to the classic 7-zone latex mattress. A suitable choice for everyone who does not tolerate boredom and routine, for everyone who loves non-standard solutions and beauty. Black Label is a combination of style, comfort and quality.', 1372),
+(4, 'LATEX MATTRESS LATEX COMBO GEL', 'soft hardness', 22, 'LATEX COMBO GEL mattress is a novelty from EKON company, which is gaining more and more popularity in the Ukrainian market. The innovative top layer of the mattress contains microcapsules of cooling gel, which maintain an optimal temperature and humidity level. Removable cover of fashionable colors in natural tones will bring aesthetic pleasure and is ideal for lovers of modern interior in eco-style.', 1945);
+
+
+INSERT IGNORE INTO `ekon`.`Order_` (`id`, `Client_id`, `Mattress_id`, `Amount`, `Status`, `ShippingCosts`, `DepartureDate`, `OrderDate`) VALUES
+(1, 1, 1,  2, 'Preparing', 50, '2022-11-06', '2022-11-04'),
+(2, 2, 2, 1, 'Delivering', 70, '2022-12-19', '2022-12-15'),
+(3, 3, 3, 3, 'Delivered', 40, '2022-10-06', '2022-10-04'),
+(4, 4, 4, 2, 'Preparing', 80, '2022-09-06', '2022-09-04');

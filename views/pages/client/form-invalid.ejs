@@ -1,0 +1,87 @@
+<!--<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+	<link rel="stylesheet" href="../../css/style.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+	<title>Ekon</title>
+</head>
+<body>
+	<header>
+		<h1>Ekon</h1>
+		<img src="../../images/logo.png" alt="Ekon Logo">
+	</header>
+
+	<ul class="menu">
+	<li><a href="../../index.html">Main page</a></li>
+			<li><a href="">Clients</a>
+			<ul>
+					<li><a href="list.html">Clients' list</a></li>
+					<li><a href="form.html">Clients' form</a></li>
+				</ul>
+			</li>
+			<li><a href="">Orders</a>
+				<ul>
+					<li><a href="../order/order.html">Orders' list</a></li>
+					<li><a href="../order/order-form.html">Orders' form</a></li>
+				</ul>
+			</li>
+			<li><a href="">Matresses</a>
+				<ul>
+					<li><a href="../mattress/mattresses.html">Mattresses' list</a></li>
+					<li><a href="../mattress/mattresses-form.html">Mattresses' form</a></li>
+				</ul>
+			</li>
+		</ul>-->
+
+	<%- include('../../fragments/header.ejs') %>
+
+	<main>
+		<h2>Client form</h2>
+
+		<form class="form">
+			<label for="Name">Name: <span class="symbol-required">*</span></label>
+			<input type="text" name="Name" id="Name" class="error-input" required/>
+			<span id="errorName" class="errors-text">Field is required</span>
+
+			
+
+			<label for="Surname">Surname: <span class="symbol-required">*</span></label>
+			<input type="text" name="Surname" id="Surname" class="error-input" required/>
+			<span id="errorSurname" class="errors-text">Field is required</span>
+
+			
+			<label for="Adres">Adres: <span class="symbol-required">*</span></label>
+			<input type="text" name="Adres" id="Adres" class="error-input" required/>
+			<span id="errorAdres" class="errors-text">Field is required</span>
+
+			
+			
+			<label for="email">email: <span class="symbol-required">*</span></label>
+			<input type="email" name="email" id="email" class="error-input" required/>
+			<span id="errorEmail" class="errors-text">Field is required</span>
+
+			
+			
+			<label for="PhoneNumber">Phone number:</label>
+			<input type="text" name="PhoneNumber" id="PhoneNumber" class="error-input" />
+			<span id="errorPhoneNumber" class="errors-text"></span>
+
+
+			<div class="form-buttons">
+				<p id="errorsSummary" class="errors-text">There are mistakes in form</p>
+				<input type="submit" value="Add" class="form-button-submit"/>
+				<a href="list.html" class="form-button-cancel">Cancel</a>
+			</div>
+		</form>
+
+		
+	</main>
+
+	<%- include('../../fragments/footer.ejs') %>
+
+	<!--<footer>
+		Artem, Honcharenko, s22527
+	</footer>
+</body>
+</html>-->

@@ -1,0 +1,83 @@
+<!--<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+	<link rel="stylesheet" href="../../css/style.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+	<title>Ekon</title>
+</head>
+<body>
+	<header>
+		<h1>Ekon</h1>
+		<img src="../../images/logo.png" alt="Ekon Logo">
+	</header>
+
+	<ul class="menu">
+			<li><a href="../../index.html">Main page</a></li>
+			<li><a href="">Clients</a>
+			<ul>
+					<li><a href="../client/list.html">Clients' list</a></li>
+					<li><a href="../client/form.html">Clients' form</a></li>
+				</ul>
+			</li>
+			<li><a href="">Orders</a>
+				<ul>
+					<li><a href="../order/order.html">Orders' list</a></li>
+					<li><a href="../order/order-form.html">Orders' form</a></li>
+				</ul>
+			</li>
+			<li><a href="">Matresses</a>
+				<ul>
+					<li><a href="mattresses.html">Mattresses' list</a></li>
+					<li><a href="mattresses-form.html">Mattresses' form</a></li>
+				</ul>
+			</li>
+		</ul>-->
+
+	<%- include('../../fragments/header.ejs') %>
+
+	<main>
+		<h2>Form editing</h2>
+
+		<form class="form">
+			<label for="Name">Name: <span class="symbol-required">*</span></label>
+			<input type="text" name="Name" id="Name" value="ALOE VERA LATEX MATTRESS" required/>
+			<span id="errorName" class="errors-text"></span>
+
+
+			<label for="Type">Type: <span class="symbol-required">*</span></label>
+			<input type="text" name="Type" id="Type" value="Medium hardness"  required/>
+			<span id="errorType" class="errors-text"></span>
+
+
+			<label for="Size">Size: <span class="symbol-required">*</span></label>
+			<input type="text" name="Size" id="Size" value="16 cm"  required/>
+			<span id="errorSize" class="errors-text"></span>
+
+			
+			<label for="Description">Description: <span class="symbol-required">*</span></label>
+			<input type="text" name="Description" id="Description" value="The composition of the cover includes an additive of Aloe Vera extract biomass. The average stiffness of the mattress is suitable for the absolute majority of people. 7 orthopedic zones provide the right support for the spine, and the elasticity of latex provides increased comfort."  required/>
+			<span id="errorDescrition" class="errors-text"></span>
+
+			
+			<label for="Price">Price: <span class="symbol-required">*</span></label>
+			<input type="text" name="Price" id="Price" value="1000 zł" required/>
+			<span id="errorPrice" class="errors-text"></span>
+
+			<div class="form-buttons">
+				<p id="errorsSummary"></p>
+				<input type="submit" value="Add" class="form-button-submit" />
+				<a href="mattresses.html" class="form-button-cancel">Cancel</a>
+			</div>
+		</form>
+
+		
+	</main>
+
+	<%- include('../../fragments/footer.ejs') %>
+
+	<!--<footer>
+		Artem, Honcharenko, s22527
+	</footer>
+</body>
+</html>-->

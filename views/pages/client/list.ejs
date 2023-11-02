@@ -1,0 +1,98 @@
+<!--<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+	<link rel="stylesheet" href="../../css/style.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+	<title>Ekon</title>
+</head>
+<body>
+	<header>
+		<h1>Ekon</h1>
+		<img src="../../images/logo.png" alt="Ekon Logo">
+	</header>
+
+	
+		<ul class="menu">
+			<li><a href="../../index.html">Main page</a></li>
+			<li><a href="">Clients</a>
+			<ul>
+					<li><a href="list.html">Clients' list</a></li>
+					<li><a href="form.html">Clients' form</a></li>
+				</ul>
+			</li>
+			<li><a href="">Orders</a>
+				<ul>
+					<li><a href="../order/order.html">Orders' list</a></li>
+					<li><a href="../order/order-form.html">Orders' form</a></li>
+				</ul>
+			</li>
+			<li><a href="">Matresses</a>
+				<ul>
+					<li><a href="../mattress/mattresses.html">Mattresses' list</a></li>
+					<li><a href="../mattress/mattresses-form.html">Mattresses' form</a></li>
+				</ul>
+			</li>
+		</ul>-->
+
+	<%- include('../../fragments/header.ejs') %>
+
+	<main>
+		<h2><%= __('client.list.pageTitle') %></h2>
+
+		<table class="table-list">
+			<thead>
+				<tr>
+					<th><%= __('client.fields.Name') %></th>
+					<th><%= __('client.fields.Surname') %></th>
+					<th><%= __('client.fields.Adres') %></th>
+					<th><%= __('client.fields.email') %></th>
+					<th><%= __('client.fields.PhoneNumber') %></th>
+                    <th><%= __('list.actions.title') %></th>
+				</tr>
+			</thead>
+
+			<tbody>
+			<% for (let client of clients) { %>
+			<tr>
+				<td><%= client.Name %></td>
+				<td><%= client.Surname %></td>
+				<td><%= client.Adres %></td>
+				<td><%= client.email %></td>
+				<td><%= client.PhoneNumber %></td>
+				
+				<td>
+					<ul class="list-actions">
+						<li>
+							<a href="/client/details/<%=client.id%>" class="list-actions-button-details"><%= __('list.actions.details') %></a>
+						</li>
+						<%if(loggedUser){%>
+						<li>
+							<a href="/client/edit/<%=client.id%>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a>
+						</li>
+						<% } %>
+						<%if(loggedUser && loggedUser.Name == "admin"){%>
+						<li>
+							<a href="/client/delete/<%=client.id%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a>
+						</li>
+						<% } %>
+					</ul>
+				</td>
+			</tr>
+			<% } %>
+		</tbody>
+		</table>
+
+		<%if(loggedUser){%>
+		<p><a href="/client/add" class="button-add"><%= __('client.list.addNew') %></a></p>
+		<% } %>
+		
+	</main>
+
+	<%- include('../../fragments/footer.ejs') %>
+
+	<!--<footer>
+		Artem, Honcharenko, s22527
+	</footer>
+</body>
+</html>-->

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="utf-8">
+    <title>Ekon</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+</head>
+<body>
+
+<header>
+    <h1>Ekon</h1>
+    <img src="/images/logo.png" alt="Ekon Logo">
+</header>
+
+
+<ul class="menu">
+    <li><a href="/" ><%= __('ul.main-page') %></a></li>
+    <li><a href=""><%= __('ul.clients') %></a>
+        <ul>
+            <li><a href="/client"><%= __('ul.clients-list') %></a></li>
+            <%if(loggedUser){%>
+            <li><a href="/client/add"><%= __('ul.clients-form') %></a></li>
+            <% } %>
+        </ul>
+    </li>
+    <li><a href=""><%= __('ul.orders') %></a>
+        <ul>
+            <li><a href="/order"><%= __('ul.orders-list') %></a></li>
+            <%if(loggedUser){%>
+            <li><a href="/order/add"><%= __('ul.orders-form') %></a></li>
+            <% } %>
+        </ul>
+    </li>
+    <li><a href=""><%= __('ul.mattresses') %></a>
+        <ul>
+            <li><a href="/mattress"><%= __('ul.mattresses-list') %></a></li>
+            <%if(loggedUser && loggedUser.Name == "admin"){%>
+            <li><a href="/mattress/add"><%= __('ul.mattresses-form') %></a></li>
+            <% } %>
+        </ul>
+    </li>
+    <li><a href="/changeLang/pl" class="<%= lang == 'pl' ? 'active' : ''%>">PL</a></li>
+    <li><a href="/changeLang/en" class="<%= lang == 'en' ? 'active' : ''%>">EN</a></li>
+</ul>

@@ -1,0 +1,188 @@
+{
+	"main-page": {
+		"content": "Main page",
+		"loging": "Log in",
+		"password": "Password",
+		"role": "Role",
+		"loginBtn": "Log in",
+		"loginInfo": "Loged in as:",
+		"logoutBtn": "Log out",
+		"register": "Sign up",
+		"signup": "Sign up"
+	},
+	"ul": {
+		"main-page": "Main page",
+		"clients": "Clients",
+		"orders": "Orders",
+		"mattresses": "Mattresses",
+		"clients-list": "Clients list",
+		"clients-form": "Clients form",
+		"orders-list": "Orders list",
+		"orders-form": "Orders form",
+		"mattresses-list": "Mattresses list",
+		"mattresses-form": "Mattresses form"
+	},
+	"list": {
+		"actions": {
+			"title": "Actions",
+			"details": "Details",
+			"edit": "Edit",
+			"delete": "Delete"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Return",
+			"edit": "Edit",
+			"cancel": "Cancel"
+		}
+	},
+	"client": {
+		"fields": {
+			"Name": "Name:",
+			"Surname": "Surname:",
+			"Adres": "Adres:",
+			"email": "Email:",
+			"PhoneNumber": "Phone number:"
+		},
+		"list": {
+			"title": "Clients",
+			"addNew": "Add new client",
+			"noData": "Lack of clients in database",
+			"pageTitle": "Clients list",
+			"detailsPage": "Details of client"
+		},
+		"form": {
+			"order": "Orders history",
+			"add": {
+				"pageTitle": "Add client",
+				"btnLabel": "Add client",
+				"confirm": {
+					"header": "Confirmation of operation",
+					"text": "Client successfully added"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edit client",
+				"btnLabel": "Edit client",
+				"confirm": {
+					"header": "Confirmation of operation",
+					"text": "Client updated successfully"
+				}
+			}
+		},
+		"table": {
+			"title": "Details of order"
+		}
+	},
+	"order": {
+		"fields": {
+			"Client": "Client:",
+			"Mattress": "Mattress:",
+			"Amount": "Amount:",
+			"Status": "Status:",
+			"ShippingCosts": "Shipping costs:",
+			"DepartureDate": "Departure date:",
+			"OrderDate": "Order date:",
+			"chooseClient": "---Choose client---",
+			"chooseMattress": "---Choose mattress---"
+		},
+		"list": {
+			"title": "Orders",
+			"addNew": "Add new order",
+			"noData": "Lack of orders in database",
+			"pageTitle": "Orders list"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Add order",
+				"btnLabel": "Add order",
+				"confirm": {
+					"header": "Confirmation of operation",
+					"text": "Order successfully added"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edit order",
+				"btnLabel": "Edit order",
+				"confirm": {
+					"header": "Confirmation of operation",
+					"text": "Order successfully updated"
+				}
+			}
+		}
+	},
+	"mattress": {
+		"fields": {
+			"Name": "Name:",
+			"Type": "Type:",
+			"Size": "Size:",
+			"Description": "Description:",
+			"Price": "Price:"
+		},
+		"list": {
+			"title": "Mattresses",
+			"addNew": "Add new mattress",
+			"noData": "Lack of mattresses in database",
+			"pageTitle": "Mattresses list",
+			"detailsPage": "Details of mattress"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Add mattress",
+				"btnLabel": "Add mattress",
+				"confirm": {
+					"header": "Confirmation of operation",
+					"text": "Mattress successfully added"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edit mattress",
+				"btnLabel": "Edit mattress",
+				"confirm": {
+					"header": "Confirmation of operation",
+					"text": "Mattress successfully updated"
+				}
+			}
+		},
+		"table": {
+			"title": "Details of order"
+		}
+	},
+	"validation": {
+		"fieldRequired": "Field is required",
+		"errorsSummary": "Form has mistakes",
+		"errorNumber": "Field should be a number",
+		"errorsLength": "Field should have from 2 to 30 signs",
+		"errorsLength2": "Field should have from 2 to 40 signs",
+		"errorsLength3": "Field should have from 2 to 20 signs",
+		"errorsLength4": "Field should have from 2 to 150 signs",
+		"errorPrice": "Field should be a number from 500 to 1 000 000",
+		"price_min 500": "The minimum value is 500",
+		"price_max 1000000": "The maximum value is 1 000 000",
+		"errorEmail": "Field should have a right email",
+		"errorPhoneLength": "Field should have maximum 15 signs",
+		"errorRoleLength": "Field should be either 0 or 1",
+		"errorPhone": "Field should be a phone number",
+		"errorDate": "Field should has date in form yyyy-MM-dd",
+		"dateMax": "Date can not be later than today",
+		"lateDate": "Date should be later than today",
+		"NumberRange": "Field should be a number from 10 to 1 000 000",
+		"string_min 2": "Field should have minimum 2 signs",
+		"string_max 20": "Field should have maximum 20 signs",
+		"string_max 30": "Field should have maximum 30 signs",
+		"string_max 40": "Field should have maximum 40 signs",
+		"string_max 150": "Field should have maximum 150 signs",
+		"number_min 0": "The minimum value is 0",
+		"number_min 10": "The minimum value is 10",
+		"number_max 1": "The maximum value is 1",
+		"number_max 1000000": "The maximum value is 1 000 000",
+		"errorName": "validation.errorName",
+		"string_min 8": "validation.string_min 8"
+	},
+	"\"Price\" must be a safe number": "\"Price\" must be a safe number",
+	"\"password\" is not allowed": "\"password\" is not allowed",
+	"\"password\" with value \"123456\" fails to match the required pattern": " /^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$/",
+	"\"Mattress\" must be a number": "\"Mattress\" must be a number",
+	"\"Role\" is not allowed": "\"Role\" is not allowed"
+}

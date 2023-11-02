@@ -1,0 +1,99 @@
+<!--<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+	<link rel="stylesheet" href="../../css/style.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+	<title>Ekon</title>
+</head>
+<body>
+	<header>
+		<h1>Ekon</h1>
+		<img src="../../images/logo.png" alt="Ekon Logo">
+	</header>
+
+	<ul class="menu">
+			<li><a href="../../index.html">Main page</a></li>
+			<li><a href="">Clients</a>
+			<ul>
+					<li><a href="../client/list.html">Clients' list</a></li>
+					<li><a href="../client/form.html">Clients' form</a></li>
+				</ul>
+			</li>
+			<li><a href="">Orders</a>
+				<ul>
+					<li><a href="order.html">Orders' list</a></li>
+					<li><a href="order-form.html">Orders' form</a></li>
+				</ul>
+			</li>
+			<li><a href="">Matresses</a>
+				<ul>
+					<li><a href="../mattress/mattresses.html">Mattresses' list</a></li>
+					<li><a href="../mattress/mattresses-form.html">Mattresses' form</a></li>
+				</ul>
+			</li>
+		</ul>-->
+
+	<%- include('../../fragments/header.ejs') %>
+
+	<main>
+		<h2>Form editing</h2>
+
+		<form class="form">
+
+			<label for="Client">Client: <span class="symbol-required">*</span></label>
+			<select name="Client" id="Client">
+				<option value="1" selected>Bartosz Szymanczak</option>
+			</select>
+			<span id="errorClient" class="errors-text"></span>
+
+
+			<label for="Mattress">Mattress: <span class="symbol-required">*</span></label>
+			<select name="Mattress" id="Mattress">
+				<option value="1" selected>ALOE VERA LATEX MATTRESS</option>
+			</select>
+			<span id="errorMattress" class="errors-text"></span>
+
+
+			<label for="Amount">Amount: <span class="symbol-required">*</span></label>
+			<input type="text" name="Amount" id="Amount" value="2" required/>
+			<span id="errorAmount" class="errors-text"></span>
+
+
+			<label for="Status">Status: <span class="symbol-required">*</span></label>
+			<input type="text" name="Status" id="Status" value="Delivering" required/>
+			<span id="errorStatus" class="errors-text"></span>
+
+			
+			<label for="ShippingCosts">Shipping costs: <span class="symbol-required">*</span></label>
+			<input type="text" name="Shipping costs" id="ShippingCosts" value="100zł" required/>
+			<span id="errorShippingCosts" class="errors-text"></span>
+
+			
+			<label for="DepartureDate">Departure date: <span class="symbol-required">*</span></label>
+			<input type="date" name="Departure date" id="DepartureDate" value="2022-11-06" required/>
+			<span id="errorDepartureDate" class="errors-text"></span>
+
+
+			<label for="OrderDate">Order date: <span class="symbol-required">*</span></label>
+			<input type="date" name="Order date" id="OrderDate" value="2022-11-04" required/>
+			<span id="errorOrderDate" class="errors-text"></span>
+
+
+			<div class="form-buttons">
+				<p id="errorsSummary"></p>
+				<input type="submit" value="Add" class="form-button-submit" />
+				<a href="order.html" class="form-button-cancel">Cancel</a>
+			</div>
+		</form>
+
+		
+	</main>
+
+	<%- include('../../fragments/footer.ejs') %>
+
+	<!--<footer>
+		Artem, Honcharenko, s22527
+	</footer>
+</body>
+</html>-->

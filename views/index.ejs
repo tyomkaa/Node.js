@@ -1,0 +1,44 @@
+	
+	<%- include('./fragments/header.ejs') %>
+
+	<main>
+		<%if(!loggedUser){%>
+			<div id = "register">
+				<h2><%= __('main-page.signup') %></h2>
+				<form class="form" method="post" action="/register" novalidate>
+
+					<p><a href="/client/add" class="form-button-submit"><%= __('main-page.register') %></a></p>
+
+				</form>
+			</div>
+			<%}%>
+
+
+
+		<%if(!loggedUser){%>
+			<div id = "login">
+				<h2><%= __('main-page.loging') %></h2>
+				<form class="form" method="post" action="/login" novalidate>
+					<label for="email"><%= __('client.fields.email') %></label>
+					<input type="text" id="email" name="email">
+
+					<label for="loginPassword"><%= __('main-page.password') %></label>
+					<input type="password" id="loginPassword" name="password">
+
+					<br></br>
+
+					<input class="form-button-submit" type="submit" value="<%= __('main-page.loginBtn') %>">
+					<span id="loginErrors" class="errors-text"><%= loginError ? loginError : ''%></span>
+				</form>
+			</div>
+			<%}else {%>
+				<span><%= __('main-page.loginInfo') %> <%=loggedUser.Name + " " + loggedUser.Surname%></span>
+				<a href="/logout"><%= __('main-page.logoutBtn') %></a>
+			<%}%>
+
+		<h2><%= __('main-page.content') %></h2>
+		<p>The application is used to manage customers, check the availability of goods in the store and create orders.</p>
+		<a href="index.html" class="active">Main page</a>
+	</main>
+
+	<%- include('./fragments/footer.ejs') %>

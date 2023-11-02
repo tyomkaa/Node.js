@@ -1,0 +1,198 @@
+{
+	"main-page": {
+		"content": "Strona główna",
+		"loging": "Logowanie",
+		"password": "Hasło",
+		"role": "Rola",
+		"loginBtn": "Zaloguj się",
+		"loginInfo": "Jesteś zalogowany jako:",
+		"logoutBtn": "Wyloguj się",
+		"register": "Zarejestruj się",
+		"signup": "Rejestracja",
+		"Role": "main-page.Role"
+	},
+	"ul": {
+		"main-page": "Strona główna",
+		"clients": "Klienci",
+		"orders": "Zamówienia",
+		"mattresses": "Materacy",
+		"clients-list": "Lista klientów",
+		"clients-form": "Forma klienta",
+		"orders-list": "Lista zamówień",
+		"orders-form": "Forma zamówień",
+		"mattresses-list": "Lista materaców",
+		"mattresses-form": "Forma materacy"
+	},
+	"list": {
+		"actions": {
+			"title": "Akcje",
+			"details": "Szczegóły",
+			"edit": "Edytuj",
+			"delete": "Usuń"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Powrót",
+			"edit": "Edytuj",
+			"cancel": "Anuluj"
+		}
+	},
+	"client": {
+		"fields": {
+			"Name": "Imię:",
+			"Surname": "Nazwisko:",
+			"Adres": "Adres:",
+			"email": "Email:",
+			"PhoneNumber": "Numer telefonu:"
+		},
+		"list": {
+			"title": "Klienci",
+			"addNew": "Dodaj nowego klienta",
+			"noData": "Brak klientów w bazie",
+			"pageTitle": "Lista klientów",
+			"detailsPage": "Szczegóły klienta"
+		},
+		"form": {
+			"order": "Historia zamówienia",
+			"add": {
+				"pageTitle": "Dodawanie klienta",
+				"btnLabel": "Dodaj klienta",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano klienta"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja klienta",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano klienta"
+				}
+			}
+		},
+		"table": {
+			"title": "Szczegóły zamówienia"
+		}
+	},
+	"order": {
+		"fields": {
+			"Client": "Klient:",
+			"Mattress": "Materac:",
+			"Amount": "Liczba:",
+			"Status": "Status:",
+			"ShippingCosts": "Koszty wysyłki:",
+			"DepartureDate": "Data wyjazdu:",
+			"OrderDate": "Data zamówienia:",
+			"chooseClient": "---Wybierz klienta---",
+			"chooseMattress": "---Wybierz materac---"
+		},
+		"list": {
+			"title": "Zamówienia",
+			"addNew": "Dodaj nowe zamówienie",
+			"noData": "Brak zamówień w bazie",
+			"pageTitle": "Lista zamówień"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Dodawanie zamówień",
+				"btnLabel": "Dodaj zamówienie",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano zamówienie"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja zamówienia",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano zamówienie"
+				}
+			}
+		}
+	},
+	"mattress": {
+		"fields": {
+			"Name": "Nazwa:",
+			"Type": "Rodzaj:",
+			"Size": "Rozmiar:",
+			"Description": "Opis:",
+			"Price": "Cena:"
+		},
+		"list": {
+			"title": "Materacy",
+			"addNew": "Dodaj nowy materac",
+			"noData": "Brak materaców w bazie",
+			"pageTitle": "Lista materaców",
+			"detailsPage": "Szczegóły materacy"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Dodawanie materaców",
+				"btnLabel": "Dodaj materac",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano materac"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja materaca",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano materac"
+				}
+			}
+		},
+		"table": {
+			"title": "Szczegóły zamówienia"
+		}
+	},
+	"validation": {
+		"fieldRequired": "Pole jest wymagane",
+		"errorsSummary": "Formularz zawiera błędy",
+		"errorNumber": "Pole musi być liczbą",
+		"errorsLength": "Pole powinno zawierać od 2 do 30 znaków",
+		"errorsLength2": "Pole powinno zawierać od 2 do 40 znaków",
+		"errorsLength3": "Pole powinno zawierać od 2 do 20 znaków",
+		"errorsLength4": "Pole powinno zawierać od 2 do 150 znaków",
+		"errorPrice": "Pole musi być liczbą od 500 do 1 000 000",
+		"price_min 500": "Minimalna wartość pola 500",
+		"price_max 1000000": "Maximalna wartość pola 1 000 000",
+		"errorEmail": "Pole musi zawierać prawidłowy adres e-mail",
+		"errorPhoneLength": "Pole musi zawierać maximum 15 znaków",
+		"errorRoleLength": "Pole powinno być albo 0 albo 1",
+		"errorPhone": "Pole musi być numerem telefonu",
+		"errorDate": "Pole powinno zawierać datę w formacie rrrr-MM-dd",
+		"lateDate": "Pole powinno być później niż dzisiaj",
+		"dateMax": "Pole nie może być później niż dzisiaj",
+		"NumberRange": "Pole powinno zawierać liczbę od 10 do 1 000 000",
+		"string_min 2": "Pole powinno zawierać minimum 2 znaki",
+		"string_max 20": "Pole powinno zawierać maximum 20 znaków",
+		"string_max 30": "Pole powinno zawierać maximum 30 znaków",
+		"string_max 40": "Pole powinno zawierać maximum 40 znaków",
+		"string_max 150": "Pole powinno zawierać maximum 150 znaków",
+		"number_min 0": "Minimalna wartość pola 0",
+		"number_min 10": "Minimalna wartość pola 10",
+		"number_max 1": "Maximalna wartość pola 1",
+		"number_max 1000000": "Maximalna wartość pola 1 000 000",
+		"price_max 1": "validation.price_max 1"
+	},
+	"\"Amount\" must be a number": "\"Amount\" must be a number",
+	"\"ShippingCosts\" must be a number": "\"ShippingCosts\" must be a number",
+	"\"DepartureDate\" must be a valid date": "\"DepartureDate\" must be a valid date",
+	"\"OrderDate\" must be a valid date": "\"OrderDate\" must be a valid date",
+	"\"ShippingCosts\" must be greater than or equal to 10": "\"ShippingCosts\" must be greater than or equal to 10",
+	"Field should have minimum 10 signs": "Field should have minimum 10 signs",
+	"\"ShippingCosts\" must be a safe number": "\"ShippingCosts\" must be a safe number",
+	"\"OrderDate\" must be less than or equal to \"now\"": "\"OrderDate\" must be less than or equal to \"now\"",
+	"\"Size\" must be a number": "\"Size\" must be a number",
+	"\"Price\" must be a number": "\"Price\" must be a number",
+	"\"PhoneNumber\" length must be less than or equal to 15 characters long": "\"PhoneNumber\" length must be less than or equal to 15 characters long",
+	"valiadtion": {
+		"errorPhoneLength": "valiadtion.errorPhoneLength"
+	},
+	"\"Role\" must be a number": "\"Role\" must be a number"
+}

@@ -1,0 +1,129 @@
+<!--<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+	<link rel="stylesheet" href="../../css/style.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+	<script type="application/javascript" src="../../JS/validationCommon.js"></script>
+	<script type="application/javascript" src="../../JS/validationMattressForm.js"></script>
+	<title>Ekon</title>
+</head>
+<body>
+	<header>
+		<h1>Ekon</h1>
+		<img src="../../images/logo.png" alt="Ekon Logo">
+	</header>
+
+	<ul class="menu">
+			<li><a href="../../index.html">Main page</a></li>
+			<li><a href="">Clients</a>
+			<ul>
+					<li><a href="../client/list.html">Clients' list</a></li>
+					<li><a href="../client/form.html">Clients' form</a></li>
+				</ul>
+			</li>
+			<li><a href="">Orders</a>
+				<ul>
+					<li><a href="../order/order.html">Orders' list</a></li>
+					<li><a href="../order/order-form.html">Orders' form</a></li>
+				</ul>
+			</li>
+			<li><a href="">Matresses</a>
+				<ul>
+					<li><a href="mattresses.html">Mattresses' list</a></li>
+					<li><a href="mattresses-form.html">Mattresses' form</a></li>
+				</ul>
+			</li>
+		</ul>-->
+
+	<%- include('../../fragments/header.ejs') %>
+
+	<main>
+		<script type="application/javascript" src="/JS/validationCommon.js"> </script>
+		<script type="application/javascript" src="/JS/validationMattressForm.js"></script>
+		<h2><%= pageTitle %></h2>
+
+		<form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+			<input type="hidden" name="id" value="<%= mattress.id %>">
+
+			<div style="display: none">
+				<span id="errorMessage-required"><%= __('validation.fieldRequired') %></span>
+				<span id="errorMessage-summary"><%= __('validation.errorsSummary') %></span>
+				<span id="errorMessage-length"><%= __('validation.errorsLength') %></span>
+				<span id="errorMessage-length2"><%= __('validation.errorsLength2') %></span>
+				<span id="errorMessage-length4"><%= __('validation.errorsLength4') %></span>
+				<span id="errorMessage-price"><%= __('validation.errorPrice') %></span>
+				<span id="errorMessage-number"><%= __('validation.errorNumber') %></span>
+			</div>
+
+			<label for="Name"><%= __('mattress.fields.Name') %><span class="symbol-required">*</span></label>
+			<input type="text" name="Name" id="Name" placeholder="2 - 40" required value="<%= mattress.Name %>" class="<%= validationErrors.find(e => e.path.includes('Name'))?'error-input':''%>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<span id="errorName" class="errors-text">
+				<% if(validationErrors.find(e => e.path.includes('Name'))) { %>
+					<%= __(validationErrors.find(e => e.path.includes('Name')).message) %>
+				<% } %>
+			</span>
+
+			<label for="Type"><%= __('mattress.fields.Type') %><span class="symbol-required">*</span></label>
+			<input type="text" name="Type" id="Type" placeholder="2 - 30" required value="<%= mattress.Type %>" class="<%= validationErrors.find(e => e.path.includes('Type'))?'error-input':''%>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<span id="errorType" class="errors-text">
+				<% if(validationErrors.find(e => e.path.includes('Type'))) { %>
+					<%= __(validationErrors.find(e => e.path.includes('Type')).message) %>
+				<% } %>
+			</span>
+
+
+			<label for="Size"><%= __('mattress.fields.Size') %><span class="symbol-required">*</span></label>
+			<input type="text" name="Size" id="Size" placeholder="ex. 16" required value="<%= mattress.Size %>" class="<%= validationErrors.find(e => e.path.includes('Size'))?'error-input':''%>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<span id="errorSize" class="errors-text">
+				<% if(validationErrors.find(e => e.path.includes('Size'))) { %>
+					<%= __(validationErrors.find(e => e.path.includes('Size')).message) %>
+				<% } %>
+			</span>
+
+		
+			
+			<label for="Description"><%= __('mattress.fields.Description') %><span class="symbol-required">*</span></label>
+			<input type="text" name="Description" id="Description" placeholder="2 - 150" required value="<%= mattress.Description %>" class="<%= validationErrors.find(e => e.path.includes('Description'))?'error-input':''%>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<span id="errorDescrition" class="errors-text">
+				<% if(validationErrors.find(e => e.path.includes('Description'))) { %>
+					<%= __(validationErrors.find(e => e.path.includes('Description')).message) %>
+				<% } %>
+			</span>
+
+			
+			<label for="Price"><%= __('mattress.fields.Price') %><span class="symbol-required">*</span></label>
+			<input type="text" name="Price" id="Price" placeholder="500 - 1000000" required value="<%= mattress.Price %>" class="<%= validationErrors.find(e => e.path.includes('Price'))?'error-input':''%>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+			<span id="errorPrice" class="errors-text">
+				<% if(validationErrors.find(e => e.path.includes('Price'))) { %>
+					<%= __(validationErrors.find(e => e.path.includes('Price')).message) %>
+				<% } %>
+			</span>
+
+			<% if (formMode == 'showDetails') { %>
+
+				<div class="section-buttons">
+					<a href="/mattress/edit/<%= mattress.id %>" class="button-edit"><%= __('form.actions.edit') %></a>
+				</div>
+			<% } %>
+
+			<p id="errorsSummary" class="<%= validationErrors.length > 0 ?'errors-text' : ''%>">
+				<%= validationErrors.length > 0 ? __('validation.errorsSummary') : ''%>
+			</p>
+
+			<div class="form-buttons">
+				<input type="submit" value="<%= btnLabel %>" class="form-button-submit"/>
+				<a href="/mattress" class="form-button-cancel"><%= __('form.actions.cancel') %></a>
+			</div>
+		</form>
+
+		
+	</main>
+
+	<%- include('../../fragments/footer.ejs') %>
+
+	<!--<footer>
+		Artem, Honcharenko, s22527
+	</footer>
+</body>
+</html>-->
